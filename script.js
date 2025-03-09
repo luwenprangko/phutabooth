@@ -67,15 +67,20 @@ captureButton.addEventListener("click", startCountdown);
 downloadButton.addEventListener("click", () => {
   html2canvas(polaroid, { scale: 3, useCORS: true }).then((canvasResult) => {
     const imageURL = canvasResult.toDataURL("image/png");
+
+    // Create a temporary link
     const link = document.createElement("a");
     link.href = imageURL;
     link.download = "polaroid-photo.png";
 
-    // Fix for iOS Safari
+    // Fix for iOS Safari (opens image in a new tab instead of failing silently)
     if (navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome")) {
-      window.open(imageURL, "_blank");
+      const newTab = window.open();
+      newTab.document.write('<img src="' + imageURL + '" />');
     } else {
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     }
   });
 });
