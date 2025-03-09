@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Polaroid Camera Capture</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="container">
     <h1>Polaroid Camera</h1>
 
-    <!-- Start Camera Button (for Safari) -->
-    <button id="start-camera">Start Camera</button>
+    <!-- Button to manually start the camera (for Safari compatibility) -->
+    <button id="startCamera">Start Camera</button>
 
-    <!-- Live Camera Feed -->
+    <!-- Live camera feed -->
     <video id="video" autoplay playsinline></video>
 
-    <!-- Hidden Canvas for Capturing Image -->
+    <!-- Hidden canvas for capturing image -->
     <canvas id="canvas" style="display:none;"></canvas>
 
-    <!-- Polaroid Preview -->
+    <!-- Polaroid preview -->
     <div id="polaroid" style="display:none;">
-      <img id="preview" alt="Captured Image">
+      <img id="preview" alt="Captured Image" crossorigin="anonymous"/>
       <p>Captured Memory</p>
     </div>
 
     <!-- Buttons -->
-    <button id="capture" style="display:none;">Take Picture</button>
+    <button id="capture">Take Picture</button>
     <button id="download" style="display:none;">Download Polaroid</button>
   </div>
 
-  <!-- html2canvas Library for High-Quality Screenshot -->
+  <!-- html2canvas library for capturing the preview as an image -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
