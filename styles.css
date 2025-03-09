@@ -27,7 +27,7 @@ button {
   cursor: pointer;
 }
 
-/* Polaroid Styling */
+/* Polaroid Styling (matches the on‑screen preview) */
 #polaroid {
   width: 250px;
   background: white;
